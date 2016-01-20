@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href=""/>
+		<script src=""></script>
+	</head>
+	<body>
+	<script>
+		//1.创建httpxml
+		function myfunc1(){
+			alert("dadasd");
+			return ;
+			var xmlhttp;
+			if (window.XMLHttpRequest)
+  			{// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp=new XMLHttpRequest();
+  			}
+			else
+  			{// code for IE6, IE5
+  				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  			}
+			//设置回调函数
+			xmlhttp.onreadystatechange=function(in) {
+				if (!(xmlhttp.readyState == 4 && xmlhttp.status == 200)) {
+					var s = document.getElementById("show");
+					s.innerHTML = s.innerHTML + xmlhttp.responseText;
+				}
+			}
+			xmlhttp.open("GET", "index.php?k=" + in.value, true);
+			//xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			xmlhttp.send();
+		};
+		</script>
+		<input type="text" id="txt1" onkeyup="myfunc1(this)"/>
+<!-- 		<input type="text" id="txt2" onchange="myfunc2(this)"/>-->
+		<span id="show"></span>
+
+	</body>
+</html>

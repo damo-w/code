@@ -1,0 +1,313 @@
+php关键字、函数、类等是大小写不敏感的，
+变量是大小写敏感的。
+php通过define函数定义常量
+php关键字：
+__CLASS__
+__DIR__
+__FILE__
+__FUNCTION__
+__LINE__
+__METHOD__
+__NAMESPACE__
+__TRAIT__
+__halt_compiler()
+abstract
+and //与运算
+array()
+as  //foreach（  as）
+break //循环跳出
+echo    //输出
+else    //if分支
+elseif  //if条件分支
+empty();
+enddeclare
+endfor
+endforeach
+endif
+endswitch
+endwhile
+eval()
+exit()
+extends
+final
+insteadof
+interface
+isset()
+list()
+namespace
+new
+or  //逻辑或
+print
+private //私有
+protected   //保护
+public  //公有
+require //文件包含，不存在提示错误
+require_once    //
+return  //返回
+callable
+case    //多分支
+catch   //错误机制
+class   //类定义
+clone
+const
+continue    //跳出本次循环
+declare
+default //多分值默认分支
+die()
+do  //do while
+for //for循环
+foreach //foreach循环
+function    //定义函数
+global
+goto    //goto
+if  //条件语句
+implements
+include //文件包含
+include_once
+instanceof
+static  //静态
+switch  //多分支
+throw   //错误抛出
+trait
+try //错误检测
+unset()
+use
+var //变量定义
+while   //循环
+xor //异或
+
+数据类型：八种
+    四种基本类型：
+        整形、浮点行、字符串、布尔
+    两种复合类型
+        数组、对象
+    两种特殊类型
+        资源、NULL
+
+    整型：范围至少2^32级别，根据系统会有不同。支持十进制、八进制0,十六进制0x和二进制0b
+        太大的整数或有非法字符的整数，会自动转换为浮点数。
+        is_int()函数可以判断一个值是否是整数
+    浮点数：同双精度，支持小数和科学计数法
+        使用is_float()判断是否浮点数
+    字符串：任意长度的字符序列，可使用单引号或双引号
+        变量在双引号中会被解析，而单引号不会。
+        双引号支持多种字符串转义：
+            \"  转双引号
+            \'  单引号
+            \n  换行符
+            \r  回车符
+            \t  制表符
+            \\  反斜杠
+            \$  美元符号
+            \{  左大括号
+            \}  右大括号
+            \[  左方括号
+            \]  右方括号
+            \0-\777 八进制表示的ASCII
+            \x0-\xff    十六进制表示的ASCII
+        使用==可测试两字符串是否相等
+        使用is_string()测试是否是字符串
+    布尔值：
+        以下值的结果为false:
+            false
+            整型0
+            浮点数0.0
+            空字符串（“”）和字符串“0”
+            空数组
+            空对象
+            NULL
+        is_bool()可测试是否布尔型
+    数组：保存一组值，由位置（0起始）或一些标识性名称来确定关联。
+        通过array()创建数组。
+        使用多个sort函数排序数组
+        使用is_array()来测试是否数组
+    对象：class是一个包含属性(变量)和方法(函数)的对象。
+        通过class关键字定义类
+        通过new关键字创建类的实例
+        通过->访问类实例的属性和方法
+        使用is_object()函数可测试一个值是否为对象
+    资源：对数据库、文件等外部事物的引用。
+        使用is_resource()测试是否是是资源。
+    回调：就是函数的引用
+        $callback=function();
+    NULL:不区分大小写。
+        is_null()测试是否是null
+    变量：用$做前缀的标识符
+        还可以这样玩：$foo="abc"; $$foo="def"; //结果:$abc的值为“def”
+    变量的引用：引用就是别名
+        $a=&$b; //$a成为$b的别名
+变量作用域：
+    局部：只有函数内部才是局部，没有语句块概念
+    全局：函数内需要通过global声明才能访问
+    静态
+    函数参数
+垃圾回收：及内存管理机制。
+    主要通过写时复制和引用计数实现。
+隐式类型转换：
+    整型+浮点==》浮点
+    整型+字符串==》整型
+    字符串转换时，只转有效数字，到无效数字停止。有小数点则转为浮点
+位运算：
+    整数、实数和字符串都可以进行位操作，只是实数需转换为整数，而字符串只接按二进制操作。
+    当两个操作数长度不同时，按短的运算，多出部分忽略。
+类型转换操作符：
+    (int) (integer)
+    (float) (boolean)
+    (string) (double) (real)
+    (bool)
+    (array) //主要是数组和对象间转换
+    (object)
+    (unset)//转为NULL
+其他操作符
+    @ 错误屏蔽
+    ``  命令替换：替换其中shell命令为结果
+    ?:
+    instanceof  测试变量是否为给定类型的实例
+流程控制语句
+    if(条件){条件满足}else{条件不满足} 或 if(条件):  条件满足  else: 条件不满足  endif;
+    switch(表达式)
+    {
+        case 常量:
+            语句序列;
+            break;
+        ……
+        default:
+            语句序列;
+            break;
+    }
+
+    switch(表达式):
+        case 常量:
+            语句序列;
+            break;
+        default:
+            语句序列;
+            break;
+    endswitch;
+    php中break和continue可以添加数字表示退出多层循环
+    while(条件){}
+    while(条件): 语句序列 endwhile;
+    do while(条件);   //没有替代语法
+    for(表达式1;表达式2;表达式3){语句序列}             //有替代语法: endfor
+    foreach($array as $value){语句序列}
+    foreach($array as $key=>$value){语句序列}     //有替代语法: endforeach
+exit和return
+    die是exit的另一种写法
+包含代码：
+    require和include
+        唯一区别：require加载不存在文件时，会产生致命错误并停止程序。而include仅仅会警告，且继续。
+    require_once和include_once
+        防止重复加载。建议使用
+    注意：require和include包含的文件会预处理展开在插入位置。所以有可能覆盖变量值或展开为局部变量
+    get_included_files()可以返回脚本包含了哪些文件，返回在一个包含完整系统路径的数组。
+php中可以使用<?= php语句 ?>将语句执行。
+
+第三章 函数
+定义函数：
+    function [&]function_name([parameter[,...]])
+    {
+       函数体
+    }
+    函数体内可以包含HTML内容。
+    函数内变量作用域仅仅是函数内
+    函数内不能访问全局变量，若需要访问，可使用global关键字在函数内重新声明,或者通过$GLOBAL['变量名']来访问
+static变量
+函数参数
+    按值传递    参数只接是变量名
+    按引用传递   参数前加&
+    默认参数：   function 函数名(参数=默认值) 有默认值的参数放在后面。
+    可变参数：func_get_args()返回包含所有参数的数组
+            func_num_args()返回所有参数的个数
+            func_get_arg(参数编号) 返回对应参数的值
+    当传递参数个数不够时，缺失的参数为NULL
+    function_exists()函数可确认一个函数是否存在
+匿名函数：函数可以没有名字，定义同时被调用。
+
+第四章 字符串
+php三种定义字符串字面量的方法
+    单引号 //不解析变量
+    双引号 //解析变量和转义字符
+    heredoc //能够保留文本格式
+echo不返回结果
+print将它的参数发给浏览器
+printf将他的参数按格式发给浏览器
+print_r能够智能显示参数,但是不处理布尔值和NULL
+var_dump可以显示所有类型，所以更适合调试。但在递归调用中，最好是用print_r。
+使用字符偏移量语法可访问单个字符$msg{$i}
+整理字符串：
+    删除空白字符 trim() ltrim rtime
+    改变大小写
+编码和转义:
+
+第五章 数组
+索引数组和关联数组
+重点是各个数组相关函数
+
+第六章 对象
+类、实例、属性、方法、封装、继承、父类/基类、子类/派生类
+使用new关键字创建，创建的对象都是引用。使用->访问，复制时clone是复制对象，否则只是复制引用。
+static可定义静态属性和静态方法，静态成员通过"类名::属性/方法"访问。
+创建一个对象
+访问对象的属性和方法
+声明类：
+    class 类名 [extends 基类] [implements 接口 [,接口,...]]
+    {
+
+    }
+
+trait：特征
+    可以理解为类的组件，只有方法，在定义类的时候可以通过use关键字只接使用。
+interface:接口
+    接口：只有声明没有实现的方法，可以通过implements关键字被实例继承，所有方法在实例中实现，通过接口访问，以实现运行时多态。
+    实例可同时继承多个接口。
+抽象类：abstract
+    可以理解为部分方法实现了的接口。
+构造函数：
+    function __construct    //类中函数名为__construct的函数
+析构函数：
+    function __destruct()   //类中函数名为__destruct的函数
+
+自省：
+    class_exists()函数确定一个类是否存在
+    get_declared_classes()  得到所有已定义的类，数组形式。
+    get_class_methods()得到类中所有方法，包括基类
+    get_class_vars()得到类中所有属性，包括基类
+        参数类类名，返回为数组
+    get_parent_class得到类的父类的名称
+    is_object()判断是否是一个类，
+    get_class(object)得到类名。
+序列化：
+    serialize(除资源外的类型)，将对象转为字符串序列
+    unserialize(序列化的对象)，返回对象本身，要求有对象定义。
+    serialize会调用对象的__sleep函数
+    unserialize会调用对象的__wakeup函数。
+    将对象存入session时，会自动调用serialize进行处理。
+
+第七章 web技术
+六个超全局变量：
+    _COOKIE:
+        使用setcookie(名称,值,有效期)设置cookie
+        使用$_COOKIE读取cookie
+    _GET：
+        发送get请求：1.使用表单发送；2.使用超链接发送
+        使用get：$_GET['变量名']
+    _POST
+        使用from发送post
+        使用$_POST['变量名']得到post变量
+    _FILES
+
+    _SERVER
+    _ENV
+
+第八章 数据库
+
+第九章 图像
+img标签嵌入的图片是单独的html请求，所以可以通过php实现
+
+
+
+
+
+
+
+
