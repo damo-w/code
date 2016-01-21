@@ -1,0 +1,11 @@
+ex_mysql.php  //使用mysql标准函数库访问
+ex_pdo.php    //使用pdo访问mysql数据库示例
+ex_mysqli.php //使用mysqli函数访问mysql数据库
+ex_sqlite.php //访问sqlite3的示例
+ex_sqlite2.php //使用pdo访问sqlite的示例
+
+/*使用sqlite数据库，需要
+ * 1.安装 sqlite sqlite3 php_sqlite
+ * 2.重启apache2
+ *    service apache2 restart
+ */
