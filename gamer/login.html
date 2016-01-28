@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="c1.css"/>
+</head>
+<body>
+  <form action="logon.php" method="post">
+      <h2>登 录</h2>
+      <div><span class="t1">用户名</span><input type="text" name="user_logname" onblur="check(this)"/></div>
+      <div><span class="t1">密码</span><input type="password" name="user_passwd" onblur="check(this)"/></div>
+      <div><span class="t1">昵称</span><input type="text" name="user_nickname" onblur="check(this)"/></div>
+      <div><span class="t1">性别</span><input type="password" name="user_sex" onblur="check(this)"/></div>
+      <div><span class="t1">出生年月</span><input type="date" name="user_age" onblur="check(this)"/></div>
+      <div><span class="t1">手机</span><input type="password" name="user_phone" onblur="check(this)"/></div>
+      <div><span class="t1">邮箱</span><input type="text" name="user_email" onblur="check(this)"/></div>
+      <div><span class="t1">签名</span><input type="password" name="user_tag" onblur="check(this)"/></div>
+      <div><span class="t1">头像</span><input type="password" name="user_icon" onblur="check(this)"/></div>
+      <div>
+          <input type="submit" name="submit" onkeyup="check()" value="确定" />
+          <input type="reset" onkeyup="check()" value="取消" />
+      </div>
+      <div><span>已有用户名请<a href="index.html">返回登录</a>。 </span></div>
+  </form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+软件名称：gamer。表示游戏玩家的意思
+数据库：
+    用户信息表：
+    u_user:存储用户登录信息，每条记录为一个用户
+        user_id://id，非空，唯一，自动递增，主键
+        login_logname://登录名，非空，唯一
+        login_disname://显示名，允许空，不唯一
+        login_pwd://密码，非空
+    u_userinfo:存储用户基本信息，每条记录为一个用户
+        user_id://id，非空，唯一，自动递增，主键
+        user_tel://用户电话，允许空
+        user_add:用户地址，允许空
+        user_tag:用户标签，允许空
+        user_friends:用户好友列表，允许空
+    u_score:
+        user_id://id，非空，唯一，自动递增，主键
+        score_item://比赛类别
+        
+    项目信息表：
+    g_item:存储比赛项目信息，每条记录表示一类比赛
+    每次比赛记录：
+    g_round:每条记录为一个回合
